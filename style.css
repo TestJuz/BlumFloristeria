@@ -326,16 +326,16 @@ button.btn-outline-light {
 
 button.btn-outline-dark {
     color: var(--text-01);
-    background: none;
-    color: var(--text-01);
-    border: 2px solid var(--text-01);
+    background: #817ab4;
+    color: var(--light-01);
+    border: 2px solid #9c93da;
 }
 
 button.btn-filled-dark {
     color: var(--light-01);
-    background: var(--text-01);
+    background: #817ab4;
     color: var(--light-01);
-    border: 2px solid var(--text-01);
+    border: 2px solid #9c93da;
 }
 
 .btn-outline-dark:hover {
@@ -388,7 +388,10 @@ section.hero {
     display: flex;
     flex-direction: row;
     grid-gap: 16px;
+    width: 50%;
+    align-items: center;
 }
+
 
 section.hero h1 {
     font-size: var(--hero-text);
@@ -401,7 +404,7 @@ section.hero h1 {
 section.hero h2{
     font-weight: 500;
     line-height: 1.2;
-    width: 40%;
+    width: 50%;
 
     color: var(--text-01);
 }
@@ -653,6 +656,10 @@ footer ul li {
         width: 80%;
     }
 
+    .btn-group {
+        margin-bottom: 20px;
+    }
+
     section.hero {
         background-size: 85%;
         background-position: 360% 60%;
@@ -750,6 +757,15 @@ footer ul li {
     section.hero h1 {
         --hero-text: 40px;
         width: 60%;
+        text-align: center;
+    }
+    section.hero h2 {
+        width: 60%;
+        text-align: center;
+    }
+    .btn-group {
+        justify-content: center;
+         width: 60%;
     }
 
     section.hero {
@@ -836,7 +852,10 @@ footer ul li {
 
     .btn-group {
         flex-direction: row;
+        align-items: center;
+
     }
+
 
     .shop-pets,
     .services {
@@ -1064,7 +1083,7 @@ footer ul li {
     color: var(--text-01);
 }
 #FAQ .faq-question:hover {
-    background: var(--light-02); /* blanco */
+    background: #db7f67; /* blanco */
     cursor: pointer;
 }
 #FAQ .faq-question {
@@ -1129,9 +1148,9 @@ a.btn-outline-dark.btn-hover-color {
     padding: 12px 24px;
     border-radius: 48px;
 
-    border: 2px solid var(--text-01);
+    border: 2px solid #9c93da;
     color: var(--light-01);
-    background: black;
+    background: #817ab4;
 
     cursor: pointer;
     text-decoration: none;
@@ -1207,7 +1226,7 @@ a.btn-outline-dark.btn-hover-color:hover {
 }
 
 .btn-add {
-    background: var(--brand-01);
+    background: #817ab4;
     color: var(--light-02);
     border: none;
     border-radius: 48px;
