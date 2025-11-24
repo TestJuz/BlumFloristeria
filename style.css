@@ -1084,6 +1084,7 @@ footer ul li {
 }
 #FAQ .faq-question:hover {
     background: #db7f67; /* blanco */
+    color: var(--light-01);
     cursor: pointer;
 }
 #FAQ .faq-question {
