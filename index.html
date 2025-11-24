@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Blum floristeria</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" /><link rel="stylesheet" href="https://public.codepenassets.com/css/reset-2.0.min.css">
+<link rel="stylesheet" href="./style.css">
+<script src="https://public.codepenassets.com/js/prefixfree-1.0.7.min.js"></script>
+
+  </head>
+    
+  <body>
+  <header>
+ <div class="banner">¿Necesitas enviar flores? ¡No te preocupes! Coordina con nosotros el servicio de envío. Costo del envío según zona de entrega</div>  
+        
+        <nav>
+              
+            <div id="logo">
+                <img class="logo"  viewBox="0 0 40 32" src="img/LOGO FINAL BLUM octubre 25.png">
+            </div>
+            <ul class="navigation-menu">
+                <li><a href="#">Productos</a></li>
+
+
+<!--
+                <li><a href="#">Categorias</a>
+                    <ul class="subnav">
+                        <li class="card-med" id="serv-groom">
+                            <div class="card-image"><img src="https://ouch-cdn2.icons8.com/T11rfGmMKgcStJyAFKNgtOfE79cadabx0DVMnvzA9Pk/rs:fit:368:313/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9wbmcvNDQx/LzFlYWU4MWY3LWQ1/ZjYtNDM2Ny1hZjM5/LWVmNTFmMGM5Njk4/MS5wbmc.png"></div>
+                            <a href="#">
+                                <span>Grooming</span>
+                                <span>More Info <span class="material-symbols-outlined">
+                                        arrow_forward
+                                    </span></span>
+                            </a>
+                        </li>
+                        <li class="card-med" id="serv-board">
+                            <div class="card-image"><img src="https://ouch-cdn2.icons8.com/F5Ea1suZtMYimKDkJr0CJLO_1bju6-bTyT1EuDKEg8s/rs:fit:368:254/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9wbmcvMjcx/LzVjMzE4NWM0LWZh/NTMtNGQ1OS05ZTM2/LTZjYzBhNGU3ODg0/NC5wbmc.png"></div>
+                            <a href="#">
+                                <span>Boarding</span>
+                                <span>More Info<span class="material-symbols-outlined">
+                                        arrow_forward
+                                    </span></span>
+                            </a>
+                    </ul>
+                </li>
+-->
+                <li><a href="#locate">Ubicacion &amp; Horarios</a>
+                </li>
+                <li>
+                    <a href="#">Acerca de nosotros</a>
+                </li>
+            </ul>
+            <div id="utility">
+                <div id="carrito-icon">
+                    <span class="material-symbols-outlined">shopping_cart</span>
+                    <span id="carrito-count">0</span>
+                </div>
+            </div>
+
+        </nav>
+    </header>
+    <section class="hero">
+    <h1>Floristeria Blum ¡Flores con encanto!</h1>
+    <h2>¡Te ayudamos a crear momentos inovidables!</h2>
+    <div class="btn-group">
+        <button class="btn-filled-dark">
+        <span class="material-symbols-outlined">shopping_cart</span>
+        Encargar ahora
+        </button>
+        <button class="btn-outline-dark btn-hover-color">
+        <span class="material-symbols-outlined">chat</span>
+        Contactanos
+        </button>
+    </div>
+    </section>
+
+    <section>
+<!--
+        <h2>Shop by Pet</h2>
+
+        <ul class="shop-pets">
+            <li class="card-large card-light" id="sup-dog">
+                <div class="card-image"><img src="https://ouch-cdn2.icons8.com/5ccPOQq69UKQcbmXfjvOScfFc9NXKG0Xu6DPNQ8b0f8/rs:fit:368:247/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9wbmcvMTEw/LzFlODdiYzcyLTBl/OWEtNDFlNS05N2Ey/LTMzYTA4MDQ5MWU1/OC5wbmc.png"></div>
+                <ul>
+                    Dogs
+                    <li><a href="#">Food &amp; Treats</a></li>
+                    <li><a href="#">Toys</a></li>
+                    <li><a href="#">Beds &amp; Furniture</a></li>
+                    <li><a href="#">Outdoor Supplies</a></li>
+                    <li><a href="#">Clothing</a></li>
+
+                    <button class="btn-outline-light">Shop All<span class="material-symbols-outlined">
+                            arrow_forward
+                        </span></button>
+
+                </ul>
+
+
+            </li>
+
+            <li class="card-large card-dark" id="sup-cat">
+                <div class="card-image"><img src="https://ouch-cdn2.icons8.com/RjiKOF2gGKiIVnIMFi0O1a4aU7DoHfhbkXr2JbUYZ3A/rs:fit:368:313/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9wbmcvMzEy/LzliNDQ3MmVlLWZh/YjMtNDQwNy1iOWVh/LWMwOTdlYWNjNWE3/NS5wbmc.png"></div>
+                <ul>Cats
+                    <li><a href="#">Food &amp; Treats</a></li>
+                    <li><a href="#">Toys</a></li>
+                    <li><a href="#">Beds &amp; Furniture</a></li>
+                    <button class="btn-outline-dark">Shop All<span class="material-symbols-outlined">
+                            arrow_forward
+                        </span></button>
+                </ul>
+
+            </li>
+
+            <li class="card-large card-dark" id="sup-bird">
+                <div class="card-image"><img src="https://ouch-cdn2.icons8.com/DF-XRInvbvWS9fQSpWc_SegC3meXZK8BmE-PjrdrF3Q/rs:fit:368:396/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9wbmcvNzI3/LzQyYWIyNzliLWJj/ZDgtNGEyMC04MGRi/LTk3MzU4YWFmNTVk/OS5wbmc.png"> </div>
+                <ul>Birds
+                    <li><a href="#">Food &amp; Treats</a></li>
+                    <li><a href="#">Toys</a></li>
+                    <li><a href="#">Furniture</a></li>
+                    <button class="btn-outline-dark">Shop All<span class="material-symbols-outlined">
+                            arrow_forward
+                        </span></button>
+                </ul>
+
+            </li>
+            <li class="card-large card-light" id="sup-fish">
+                <div class="card-image"><img src="https://ouch-cdn2.icons8.com/41Pv7w9rcbn7II_gB2vwvVCQRYE5mvpca1ZbsvMujR0/rs:fit:368:368/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9wbmcvNjE5/LzRlZjE1YTgyLTI3/NjYtNDlkNC1hMGE3/LWY4ZjRmNzhjM2M5/NS5wbmc.png"></div>
+                <ul>
+                    Fish
+                    <li><a href="#">Food</a></li>
+                    <li><a href="#">Aquariums</a></li>
+                    <li><a href="#">Rocks &amp; Decorations</a></li>
+                    <button class="btn-outline-light">Shop All<span class="material-symbols-outlined">
+                            arrow_forward
+                        </span></button>
+                </ul>
+
+            </li>
+        </ul>
+        -->
+    </section>
+
+<section id="productos">
+    <h2>Nuestros Productos</h2>
+    <p class="descripcion">Elige tu arreglo favorito y añádelo al carrito para completar tu pedido por WhatsApp.</p>
+
+    <div class="productos-grid">
+
+        <div class="producto-card">
+            <div class="producto-img">
+                <img src="./img/Girasol y Rosa.png" alt="Arreglo 1">
+            </div>
+            <h3>Arreglo #1</h3>
+            <p class="producto-descripcion">Girasoles y rosas frescas, ideal para regalar.</p>
+            <span class="precio">₡22,000</span>
+            <button class="btn-add" data-name="Arreglo #1" data-price="22000">
+                <span class="material-symbols-outlined">shopping_cart</span>
+                Añadir al carrito
+            </button>
+        </div>
+
+        <div class="producto-card">
+            <div class="producto-img">
+                <img src="./img/Rosa Girasol Rosa.png" alt="Arreglo 2">
+            </div>
+            <h3>Arreglo #2</h3>
+            <p class="producto-descripcion">Tonos rosados para ocasiones especiales.</p>
+            <span class="precio">₡18,500</span>
+            <button class="btn-add" data-name="Arreglo #2" data-price="18500">
+                <span class="material-symbols-outlined">shopping_cart</span>
+                Añadir al carrito
+            </button>
+        </div>
+
+        <div class="producto-card">
+            <div class="producto-img">
+                <img src="./img/Girasol Rosa.png" alt="Arreglo 3">
+            </div>
+            <h3>Arreglo #3</h3>
+            <p class="producto-descripcion">Rosas y girasol para momentos inolvidables.</p>
+            <span class="precio">₡20,000</span>
+            <button class="btn-add" data-name="Arreglo #3" data-price="20000">
+                <span class="material-symbols-outlined">shopping_cart</span>
+                Añadir al carrito
+            </button>
+        </div>
+
+        <div class="producto-card">
+            <div class="producto-img">
+                <img src="./img/Gerbera Rosa.png" alt="Arreglo 4">
+            </div>
+            <h3>Arreglo #4</h3>
+            <p class="producto-descripcion">Gerberas rosadas elegantes y frescas.</p>
+            <span class="precio">₡23,000</span>
+            <button class="btn-add" data-name="Arreglo #4" data-price="23000">
+                <span class="material-symbols-outlined">shopping_cart</span>
+                Añadir al carrito
+            </button>
+        </div>
+
+    </div>
+<button onclick="enviarCarrito()" class="btn-filled-dark btn-enviar-pedido">
+    <span class="material-symbols-outlined">shopping_cart</span>
+    Enviar pedido
+</button>
+
+</section>
+
+    <section id="opinion">
+
+    <div class="elfsight-app-ecc3f3b1-c92e-45e6-83ba-7615e8b12e0f" data-elfsight-app-lazy>
+    <h2>Opiniones de nuestros clientes en maps</h2>
+    <div id="reviews-container"></div>
+
+    </div>
+    </section>
+
+    <section id="locate">
+
+        <div>
+            <h2>Ubicacion &amp; Horario</h2>
+            <p>Lunes Cerrado</p>
+            <p>Martes - Viernes 10:00 AM - 5:30 PM</p>
+            <p>Sábado - Domingo 10:00 AM - 2:00 PM</p>
+            <div class="btn-group">
+                <a href="#"
+                    target="_blank"
+                    class="btn-outline-dark btn-hover-color">
+                    <span class="material-symbols-outlined">Map</span> Waze
+                </a>
+                <a href="#"
+                    target="_blank"
+                    class="btn-outline-dark btn-hover-color">
+                    <span class="material-symbols-outlined">pin_drop</span> Maps
+                </a>
+               <a href="https://api.whatsapp.com/send/?phone=50683551919&text=Hola+blum%2C+quiero+ordenar+un+arreglo&type=phone_number&app_absent=0&utm_campaign=conversion&utm_source=website"
+                    target="_blank"
+                    class="btn-outline-dark btn-hover-color">
+                    <span class="material-symbols-outlined">chat</span> Contactanos
+                </a>
+
+            </div>
+        </div>
+    </section>
+     <section id="aboutUs">
+
+        <div>
+            <h2>Acerca de nosotros</h2>
+            <p>Lunes Cerrado</p>
+            <p>Martes - Viernes 10:00 AM - 5:30 PM</p>
+            <p>Sábado - Domingo 10:00 AM - 2:00 PM</p>
+            <div class="btn-group">
+                <button class="btn-filled-dark"><span class="material-symbols-outlined">
+                    Map
+                    </span>Waze
+                </button>
+                <button class="btn-filled-dark"><span class="material-symbols-outlined">
+                    pin_drop
+                    </span>Maps
+                </button>
+                <button class="btn-outline-dark btn-hover-color"><span class="material-symbols-outlined">
+                chat
+                </span> Contactanos</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="FAQ">
+        <div>
+            <h2>Preguntas Frecuentes</h2>
+            <div class="faq-item">
+                <button class="faq-question">
+                    ¿Qué métodos de pago aceptan?
+                    <span class="arrow">⌄</span>
+                </button>
+                <div class="faq-answer">
+                    <p>
+                       Aceptamos SINPE Móvil, transferencias bancarias 
+                       y tarjetas de crédito/débito. El pago se confirma 
+                       al momento de realizar el pedido por WhatsApp.
+                    </p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    ¿Cuál es el horario de atención?
+                    <span class="arrow">⌄</span>
+                </button>
+                <div class="faq-answer">
+                    <p>
+                        Lunes cerrado. Martes a viernes de 10:00 AM a 5:30 PM.  
+                        Sábados y domingos de 10:00 AM a 2:00 PM.  
+                        Días feriados: consultar con tienda.  
+                        Pedidos fuera de horario se procesan al día siguiente.
+                    </p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    ¿Hacen entregas el mismo día?
+                    <span class="arrow">⌄</span>
+                </button>
+                <div class="faq-answer">
+                    <p>
+                        Sí. Confirmamos el tiempo estimado al procesar tu orden.  
+                        Considera que los ramos se hacen con esmero y a mano,
+                        por lo que siempre debes solicitarlo con antelación.
+                    </p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    ¿Puedo personalizar mi diseño floral?
+                    <span class="arrow">⌄</span>
+                </button>
+                <div class="faq-answer">
+                    <p>
+                        ¡Por supuesto! Contáctanos por WhatsApp con tus preferencias
+                        de colores, flores y estilo. Te ayudamos a crear el arreglo perfecto.
+                    </p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    ¿Cómo cuidar mis flores?
+                    <span class="arrow">⌄</span>
+                </button>
+                <div class="faq-answer">
+                    <p>
+                        Agrega 1 cucharadita de azúcar y 1 cucharadita de cloro por litro de agua.  
+                        Corta 1 cm del tallo cada dos días.  
+                        No rocíes pétalos con agua y ten cuidado al manipular cloro.  
+                        ¡Y ponles mucho amor cada día!
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <a href="https://api.whatsapp.com/send/?phone=50683551919&text=Hola+blum%2C+quiero+ordenar+un+arreglo&type=phone_number&app_absent=0&utm_campaign=conversion&utm_source=website"
+        class="whatsapp-floating"
+        target="_blank"
+        rel="noopener">
+            <span class="material-symbols-rounded">chat</span>
+    </a>
+
+    <div id="carrito-panel" class="carrito-panel">
+        <div class="carrito-header">
+            <h3>Mi pedido</h3>
+            <span class="material-symbols-outlined cerrar-carrito">close</span>
+        </div>
+
+        <div class="carrito-items"></div>
+
+        <div class="carrito-footer">
+            <button id="btn-ordenar" class="btn-filled-dark">
+                <span class="material-symbols-outlined">send</span> Ordenar por WhatsApp
+            </button>
+        </div>
+    </div>
+
+    <div id="carrito-overlay"></div>
+
+
+
+
+    <footer>
+ <!--
+        <ul>
+            Products
+            <li><a href="#">Food &amp; Treats</a></li>
+            <li><a href="#">Toys</a></li>
+            <li><a href="#">Beds &amp; Furniture</a></li>
+            <li><a href="#">Outdoor Supplies</a></li>
+            <li><a href="#">Clothing</a></li>
+            <li><a href="#">Aquariums</a></li>
+            <li><a href="#">Rocks &amp; Decorations</a></li>
+        </ul>
+
+        <ul>
+            Shop by Pet
+            <li><a href="#">Dogs</a></li>
+            <li><a href="#">Cats</a></li>
+            <li><a href="#">Birds</a></li>
+            <li><a href="#">Fish</a></li>
+        </ul>
+
+
+        <ul>
+            Our Services
+            <li><a href="#">Grooming</a></li>
+            <li><a href="#">Boarding</a></li>
+        </ul>
+        <ul>
+            Our Company
+            <li><a href="#">Locations &amp; Hours</a></li>
+            <li><a href="#">About Us</a></li>
+        </ul>
+
+-->
+    </footer>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDiMUDsSsBdJM8d-PxOhpbL8YA7ISf_7bk&libraries=places&language=es&region=CR"></script>
+    <script  src="./script.js"></script>
+    <!--<script src="https://apps.elfsight.com/p/platform.js" defer></script-->
+
+  </body>
+  
+</html>
