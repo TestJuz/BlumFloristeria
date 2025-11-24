@@ -1227,7 +1227,7 @@ a.btn-outline-dark.btn-hover-color:hover {
 }
 
 .btn-add {
-    background: #817ab4;
+    background: #7169ad;
     color: var(--light-02);
     border: none;
     border-radius: 48px;
@@ -1262,7 +1262,7 @@ a.btn-outline-dark.btn-hover-color:hover {
     position: absolute;
     top: -6px;
     right: -10px;
-    background: #817ab4;
+    background: #7169ad;
     color: white;
     font-size: 12px;
     font-weight: 700;
@@ -1356,7 +1356,8 @@ a.btn-outline-dark.btn-hover-color:hover {
 }
 
 .qty-btn {
-    background: var(--brand-02);
+    background: #7970bb;
+    color:var(--light-01);
     border: none;
     padding: 6px 12px;
     font-size: 18px;
@@ -1367,8 +1368,8 @@ a.btn-outline-dark.btn-hover-color:hover {
 }
 
 .qty-btn:hover {
-    background: var(--brand-01);
-    color: white;
+    background: #817ab4;
+    color:var(--light-01);
 }
 
 .qty-number {
