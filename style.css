@@ -10,7 +10,7 @@
     --nav-card-size: 240px;
 
     -webkit-font-smoothing: antialiased;
-    font-smoothing: antialiased;
+    -font-smoothing: antialiased;
     scroll-behavior: smooth;
 
 
@@ -339,12 +339,12 @@ button.btn-filled-dark {
 }
 
 .btn-outline-dark:hover {
-    background: var(--text-01);
+    background: #7169ad;
     border: 2px solid var(--text-01);
 }
 
 .btn-outline-light:hover {
-    background: var(--light-01);
+    background: #7169ad;
     border: 2px solid var(--light-01);
     color: var(--text-01);
 }
@@ -353,8 +353,8 @@ button.btn-filled-dark {
 button:hover,
 .btn-outline-dark.btn-hover-color:hover {
     color: var(--light-01);
-    border: 2px solid var(--brand-01);
-    background: var(--brand-01);
+    border: 2px solid #7970bb;
+    background: #7169ad;
     transition: var(--hover-timing);
     box-shadow: var(--card-hover);
 }
@@ -1159,8 +1159,8 @@ a.btn-outline-dark.btn-hover-color {
 }
 
 a.btn-outline-dark.btn-hover-color:hover {
-    background: var(--brand-01);
-    border-color: var(--brand-01);
+    background: #7169ad;
+    border-color: #817ab4;
     color: var(--light-01);
     box-shadow: var(--card-hover);
 }
@@ -1242,7 +1242,7 @@ a.btn-outline-dark.btn-hover-color:hover {
 }
 
 .btn-add:hover {
-    background: #c66d57;
+    background: #7169ad;
     box-shadow: var(--card-hover);
 }
 
