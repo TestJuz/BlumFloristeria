@@ -1262,7 +1262,7 @@ a.btn-outline-dark.btn-hover-color:hover {
     position: absolute;
     top: -6px;
     right: -10px;
-    background: var(--brand-01);
+    background: #817ab4;
     color: white;
     font-size: 12px;
     font-weight: 700;
