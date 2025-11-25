@@ -197,9 +197,7 @@ document.getElementById("btn-ordenar").addEventListener("click", () => {
         .map(item => `• ${item.nombre} x${item.cantidad} – ₡${item.precio}`)
         .join(" , ");
 
-    //const url =
-    //    `https://api.whatsapp.com/send/?phone=50683551919&text=` +
-    //    `Hola+Blum%2C+quiero+ordenar:%0A${mensaje}`;
+
 
     const url =
         `https://api.whatsapp.com/send/?phone=50683551919&text=` + encodeURIComponent(`Hola Blum quiero ordenar: ${mensaje}`);
