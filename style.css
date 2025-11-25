@@ -1397,3 +1397,73 @@ a.btn-outline-dark.btn-hover-color:hover {
     justify-content: center;
     align-items: center;
 }
+
+/* Panel de confirmación */
+.confirm-panel {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.confirm-panel-content {
+    background: #ffffff;
+    padding: 28px 32px;
+    border-radius: 14px;
+    width: 90%;
+    max-width: 380px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+/* Grupo de botones dentro del panel */
+.confirm-panel .btn-group {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+/* Botones estilizados para el panel */
+.confirm-panel button {
+    padding: 10px 18px;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    min-width: 120px;
+    transition: 0.2s ease;
+}
+
+/* Botón Sí */
+#btn-confirm-si {
+    background-color: #8678C7;
+    color: #fff;
+}
+
+#btn-confirm-si:hover {
+    background-color: #6E61B4;
+}
+
+/* Botón No */
+#btn-confirm-no {
+    background-color: #E5E1F8;
+    color: #4A3F80;
+}
+
+#btn-confirm-no:hover {
+    background-color: #D8D3F3;
+}
+
+/* Ocultar panel */
+.hidden {
+    display: none;
+}
+.confirm-panel .btn-group {
+    width: 100% !important;
+}
+

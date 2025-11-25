@@ -107,6 +107,16 @@ function enviarCarrito() {
     abrirCarrito()
 }
 
+//Panel Validacion
+// Mostrar / ocultar panel
+function mostrarPanelConfirmacion() {
+    document.getElementById("confirm-panel").classList.remove("hidden");
+}
+
+function cerrarPanelConfirmacion() {
+    document.getElementById("confirm-panel").classList.add("hidden");
+}
+
 //Panel de carrito
 const carritoIcon = document.getElementById("carrito-icon");
 const carritoPanel = document.getElementById("carrito-panel");
@@ -204,8 +214,8 @@ document.getElementById("btn-ordenar").addEventListener("click", () => {
 
     window.open(url, "_blank");
 
-    // Guardar flag de compra finalizada
-    localStorage.setItem("FinalizoCompra", "true");     
+    // Mostrar panel de confirmación
+    mostrarPanelConfirmacion();     
 });
 
 function limpieza(){
@@ -214,9 +224,18 @@ function limpieza(){
     localStorage.removeItem("FinalizoCompra");
     actualizarContador();
     localStorage.setItem("FinalizoCompra", "false");
+    cerrarCarrito()
 }
 
-// Si la compra fue finalizada, limpiar carrito automáticamente
-if (finalizoCompra) {
-    limpieza()
-}
+// Botón "Sí, completé el pedido"
+document.getElementById("btn-confirm-si").addEventListener("click", () => {
+    limpieza();                 // Limpia carrito y resetea flag
+    cerrarPanelConfirmacion();  // Cierra panel
+});
+
+// Botón "Seguir navegando"
+document.getElementById("btn-confirm-no").addEventListener("click", () => {
+    localStorage.setItem("FinalizoCompra", "false"); // Marca como no finalizado
+    cerrarPanelConfirmacion();                       // Solo cierra panel
+});
+
