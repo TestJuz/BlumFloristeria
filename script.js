@@ -239,3 +239,16 @@ document.getElementById("btn-confirm-no").addEventListener("click", () => {
     cerrarPanelConfirmacion();                       // Solo cierra panel
 });
 
+document.getElementById("btn-limpiar").addEventListener("click", () => {
+    if (carrito.length === 0) {
+        alert("El carrito ya está vacío 💐");
+        return;
+    }
+
+    // Ejecuta tu limpieza total
+    limpieza();
+
+    // Limpia el panel visualmente
+    document.querySelector(".carrito-items").innerHTML = "";
+
+});

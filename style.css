@@ -1467,3 +1467,28 @@ a.btn-outline-dark.btn-hover-color:hover {
     width: 100% !important;
 }
 
+#btn-limpiar {
+    margin-bottom: 12px;
+    background: #f2e9ff;
+    color: #4A3F80;
+    border: 2px solid #c6b8ee;
+}
+
+#btn-limpiar:hover {
+    background: #e7dbff;
+    border-color: #a296da;
+    color: #3c3470;
+}
+
+/* Uniformar botones dentro del footer del carrito */
+.carrito-footer button {
+    width: 100%;
+    padding: 14px 20px !important; /* iguales */
+    font-size: 18px !important;
+    border-radius: 40px !important;
+}
+
+/* Espacio entre botones */
+#btn-limpiar {
+    margin-bottom: 12px;
+}
