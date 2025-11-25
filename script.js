@@ -246,9 +246,21 @@ document.getElementById("btn-limpiar").addEventListener("click", () => {
     }
 
     // Ejecuta tu limpieza total
-    limpieza();
+     // Mostrar panel de confirmación
+     document.getElementById("confirm-limpiar").classList.remove("hidden");
 
-    // Limpia el panel visualmente
-    document.querySelector(".carrito-items").innerHTML = "";
 
 });
+
+// Si confirma limpiar
+document.getElementById("btn-limpiar-si").addEventListener("click", () => {
+    limpieza(); // ejecuta tu limpieza total
+
+    document.getElementById("confirm-limpiar").classList.add("hidden");
+});
+
+// Si cancela
+document.getElementById("btn-limpiar-no").addEventListener("click", () => {
+    document.getElementById("confirm-limpiar").classList.add("hidden");
+});
+
