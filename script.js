@@ -107,6 +107,16 @@ function enviarCarrito() {
     abrirCarrito()
 }
 
+//Panel Validacion
+// Mostrar / ocultar panel
+function mostrarPanelConfirmacion() {
+    document.getElementById("confirm-panel").classList.remove("hidden");
+}
+
+function cerrarPanelConfirmacion() {
+    document.getElementById("confirm-panel").classList.add("hidden");
+}
+
 //Panel de carrito
 const carritoIcon = document.getElementById("carrito-icon");
 const carritoPanel = document.getElementById("carrito-panel");
@@ -197,17 +207,15 @@ document.getElementById("btn-ordenar").addEventListener("click", () => {
         .map(item => `• ${item.nombre} x${item.cantidad} – ₡${item.precio}`)
         .join(" , ");
 
-    //const url =
-    //    `https://api.whatsapp.com/send/?phone=50683551919&text=` +
-    //    `Hola+Blum%2C+quiero+ordenar:%0A${mensaje}`;
+
 
     const url =
         `https://api.whatsapp.com/send/?phone=50683551919&text=` + encodeURIComponent(`Hola Blum quiero ordenar: ${mensaje}`);
 
     window.open(url, "_blank");
 
-    // Guardar flag de compra finalizada
-    localStorage.setItem("FinalizoCompra", "true");     
+    // Mostrar panel de confirmación
+    mostrarPanelConfirmacion();     
 });
 
 function limpieza(){
@@ -216,9 +224,43 @@ function limpieza(){
     localStorage.removeItem("FinalizoCompra");
     actualizarContador();
     localStorage.setItem("FinalizoCompra", "false");
+    cerrarCarrito()
 }
 
-// Si la compra fue finalizada, limpiar carrito automáticamente
-if (finalizoCompra) {
-    limpieza()
-}
+// Botón "Sí, completé el pedido"
+document.getElementById("btn-confirm-si").addEventListener("click", () => {
+    limpieza();                 // Limpia carrito y resetea flag
+    cerrarPanelConfirmacion();  // Cierra panel
+});
+
+// Botón "Seguir navegando"
+document.getElementById("btn-confirm-no").addEventListener("click", () => {
+    localStorage.setItem("FinalizoCompra", "false"); // Marca como no finalizado
+    cerrarPanelConfirmacion();                       // Solo cierra panel
+});
+
+document.getElementById("btn-limpiar").addEventListener("click", () => {
+    if (carrito.length === 0) {
+        alert("El carrito ya está vacío 💐");
+        return;
+    }
+
+    // Ejecuta tu limpieza total
+     // Mostrar panel de confirmación
+     document.getElementById("confirm-limpiar").classList.remove("hidden");
+
+
+});
+
+// Si confirma limpiar
+document.getElementById("btn-limpiar-si").addEventListener("click", () => {
+    limpieza(); // ejecuta tu limpieza total
+
+    document.getElementById("confirm-limpiar").classList.add("hidden");
+});
+
+// Si cancela
+document.getElementById("btn-limpiar-no").addEventListener("click", () => {
+    document.getElementById("confirm-limpiar").classList.add("hidden");
+});
+

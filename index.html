@@ -68,7 +68,7 @@
     </header>
     <section class="hero">
     <h1>Floristeria Blum ¡Flores con encanto!</h1>
-    <h2>¡Te ayudamos a crear momentos inovidables!</h2>
+    <h2>¡Te ayudamos a crear momentos inolvidables!</h2>
     <div class="btn-group">
         <button class="btn-filled-dark">
         <span class="material-symbols-outlined">shopping_cart</span>
@@ -210,6 +210,9 @@
     <span class="material-symbols-outlined">shopping_cart</span>
     Enviar pedido
 </button>
+
+
+
 
 </section>
 
@@ -363,6 +366,11 @@
 
         <div class="carrito-items"></div>
 
+        <button id="btn-limpiar" class="btn-outline-dark btn-hover-color">
+            <span class="material-symbols-outlined">delete</span>
+            Limpiar carrito
+        </button>
+
         <div class="carrito-footer">
             <button id="btn-ordenar" class="btn-filled-dark">
                 <span class="material-symbols-outlined">send</span> Ordenar por WhatsApp
@@ -373,6 +381,32 @@
     <div id="carrito-overlay"></div>
 
 
+    <div id="confirm-panel" class="confirm-panel hidden">
+        <div class="confirm-panel-content">
+            <p>Hola, ¿completaste el pedido o quieres seguir navegando?</p>
+            <div class="btn-group">
+                <button id="btn-confirm-si" class="btn-filled-dark">
+                    Sí, completé el pedido
+                </button>
+                <button id="btn-confirm-no" class="btn-outline-dark btn-hover-color">
+                    Seguir navegando
+                </button>
+            </div>
+        </div>
+    </div>
+    <div id="confirm-limpiar" class="confirm-panel hidden">
+        <div class="confirm-panel-content">
+            <p>¿Seguro que quieres limpiar el carrito?</p>
+            <div class="btn-group">
+                <button id="btn-limpiar-si" class="btn-filled-dark">
+                    Sí
+                </button>
+                <button id="btn-limpiar-no" class="btn-outline-dark btn-hover-color">
+                    No
+                </button>
+            </div>
+        </div>
+    </div>
 
 
     <footer>
