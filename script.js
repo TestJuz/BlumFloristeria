@@ -1,6 +1,7 @@
 
-
-
+// ===========================
+// CARGA OPINIONES DE CLIENTES
+// ===========================
 document.addEventListener("DOMContentLoaded", () => {
     const placeId = "ChIJrRE_D4H7oI8RoylPeAX17Qo";
 
@@ -39,8 +40,82 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     );
 });
+// ===========================
+// CARGA DE PRODUCTOS + ADD TO CART
+// ===========================
+document.addEventListener("DOMContentLoaded", () => {
+    const grid = document.getElementById('productos-grid');
+
+    // 🟣 Delegación de eventos para todos los .btn-add
+    grid.addEventListener("click", (event) => {
+        const btn = event.target.closest(".btn-add");
+        if (!btn) return; // si no clickeaste en un botón, salir
+
+        const nombre = btn.dataset.name;
+        const rawPrice = btn.dataset.price;
+
+        // precio: número o null si es personalizable
+        const precio = (rawPrice === "" || rawPrice === undefined)
+            ? null
+            : Number(rawPrice);
+
+        const existente = carrito.find(item => item.nombre === nombre);
+
+        if (existente) {
+            existente.cantidad++;
+        } else {
+            carrito.push({
+                nombre,
+                precio,
+                cantidad: 1
+            });
+        }
+
+        guardarCarrito();
+        renderCarrito(); // actualiza panel si está abierto
+    });
+
+    // 🟣 Cargar productos y crear las cards
+    fetch('./Products.json')
+        .then(response => response.json())
+        .then(data => {
+
+            Object.keys(data).forEach(categoria => {
+                data[categoria].forEach(producto => {
+
+                    const precioTexto = producto.precio === null
+                        ? "Personalizable"
+                        : `₡${producto.precio.toLocaleString("es-CR")}`;
+
+                    const card = document.createElement('div');
+                    card.classList.add('producto-card');
+
+                    card.innerHTML = `
+                        <div class="producto-img">
+                            <img src="${producto.imagen}" alt="${producto.nombre}" loading="lazy">
+                        </div>
+                        <h3>${producto.nombre}</h3>
+                        <p class="producto-descripcion">${categoria.replace(/_/g, " ")}</p>
+                        <span class="precio">${precioTexto}</span>
+                        <button class="btn-add"
+                            data-name="${producto.nombre}"
+                            data-price="${producto.precio !== null ? producto.precio : ""}">
+                            <span class="material-symbols-outlined">shopping_cart</span>
+                            Añadir al carrito
+                        </button>
+                    `;
+
+                    grid.appendChild(card);
+                });
+            });
+        })
+        .catch(error => console.error("Error cargando productos:", error));
+});
 
 
+// ===========================
+// FAQ
+// ===========================
 document.querySelectorAll("#FAQ .faq-question").forEach(btn => {
     btn.addEventListener("click", () => {
         const item = btn.parentElement;
@@ -64,6 +139,10 @@ document.querySelectorAll("#FAQ .faq-question").forEach(btn => {
     });
 });
 
+
+// ===========================
+// CARRITO - DATA & UTILIDADES
+// ===========================
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
 function guardarCarrito() {
@@ -72,42 +151,24 @@ function guardarCarrito() {
 }
 
 function actualizarContador() {
-    const count = carrito.length;
-    document.getElementById("carrito-count").textContent = count;
+    const count = carrito.reduce((acc, item) => acc + item.cantidad, 0);
+    const badge = document.getElementById("carrito-count");
+    if (badge) {
+        badge.textContent = count;
+    }
 }
 
 actualizarContador();
 
-// 3. Cuando se hace clic en "Añadir al carrito"
-// Agregar producto
-document.querySelectorAll(".btn-add").forEach(btn => {
-    btn.addEventListener("click", () => {
-        const nombre = btn.dataset.name;
-        const precio = btn.dataset.price;
-
-        // Revisar si ya existe
-        const existente = carrito.find(item => item.nombre === nombre);
-
-        if (existente) {
-            existente.cantidad++;
-        } else {
-            carrito.push({
-                nombre,
-                precio,
-                cantidad: 1
-            });
-        }
-
-        guardarCarrito();
-    });
-});
-
-// función para enviar a whatsapp
+// función para enviar a whatsapp (abre panel primero)
 function enviarCarrito() {
-    abrirCarrito()
+    abrirCarrito();
 }
 
-//Panel Validacion
+
+// ===========================
+// PANEL VALIDACIÓN
+// ===========================
 // Mostrar / ocultar panel
 function mostrarPanelConfirmacion() {
     document.getElementById("confirm-panel").classList.remove("hidden");
@@ -117,7 +178,10 @@ function cerrarPanelConfirmacion() {
     document.getElementById("confirm-panel").classList.add("hidden");
 }
 
-//Panel de carrito
+
+// ===========================
+// PANEL DE CARRITO
+// ===========================
 const carritoIcon = document.getElementById("carrito-icon");
 const carritoPanel = document.getElementById("carrito-panel");
 const carritoOverlay = document.getElementById("carrito-overlay");
@@ -127,8 +191,6 @@ const carritoItemsDiv = document.querySelector(".carrito-items");
 // Revisar si ya finalizó compra antes
 let finalizoCompra = localStorage.getItem("FinalizoCompra") === "true";
 
-
-// FUNCIONES DE PANEL
 function abrirCarrito() {
     carritoPanel.style.right = "0";
     carritoOverlay.style.opacity = "1";
@@ -142,19 +204,33 @@ function cerrarCarrito() {
     carritoOverlay.style.pointerEvents = "none";
 }
 
-carritoIcon.addEventListener("click", abrirCarrito);
-cerrarBtn.addEventListener("click", cerrarCarrito);
-carritoOverlay.addEventListener("click", cerrarCarrito);
+if (carritoIcon) carritoIcon.addEventListener("click", abrirCarrito);
+if (cerrarBtn) cerrarBtn.addEventListener("click", cerrarCarrito);
+if (carritoOverlay) carritoOverlay.addEventListener("click", cerrarCarrito);
 
+
+// ===========================
 // RENDER DEL CARRITO
+// ===========================
 function renderCarrito() {
+    if (!carritoItemsDiv) return;
     carritoItemsDiv.innerHTML = "";
 
     carrito.forEach((item, index) => {
+        // determinar si es personalizable
+        const esPersonalizable =
+            item.precio === null ||
+            item.precio === "" ||
+            isNaN(Number(item.precio));
+
+        const precioTexto = esPersonalizable
+            ? "Personalizable"
+            : `₡${Number(item.precio).toLocaleString("es-CR")}`;
+
         carritoItemsDiv.innerHTML += `
             <div class="carrito-item">
                 <span class="item-name">${item.nombre}</span>
-                <span class="item-price">₡${item.precio}</span>
+                <span class="item-price">${precioTexto}</span>
 
                 <div class="qty-controls">
                     <button class="qty-btn minus" data-index="${index}">−</button>
@@ -194,7 +270,9 @@ function activarBotonesCantidad() {
 }
 
 
+// ===========================
 // BOTÓN ORDENAR POR WHATSAPP
+// ===========================
 document.getElementById("btn-ordenar").addEventListener("click", () => {
 
     if (carrito.length === 0) {
@@ -202,41 +280,54 @@ document.getElementById("btn-ordenar").addEventListener("click", () => {
         return;
     }
 
-    // Mensaje construido correctamente
     const mensaje = carrito
-        .map(item => `• ${item.nombre} x${item.cantidad} – ₡${item.precio}`)
+        .map(item => {
+            const esPersonalizable =
+                item.precio === null ||
+                item.precio === "" ||
+                isNaN(Number(item.precio));
+
+            if (esPersonalizable) {
+                return `• ${item.nombre} x${item.cantidad} – precio personalizable`;
+            } else {
+                return `• ${item.nombre} x${item.cantidad} – ₡${Number(item.precio).toLocaleString("es-CR")}`;
+            }
+        })
         .join(" , ");
 
-
-
     const url =
-        `https://api.whatsapp.com/send/?phone=50683551919&text=` + encodeURIComponent(`Hola Blum quiero ordenar: ${mensaje}`);
+        `https://api.whatsapp.com/send/?phone=50683551919&text=` +
+        encodeURIComponent(`Hola Blum quiero ordenar: ${mensaje}`);
 
     window.open(url, "_blank");
 
     // Mostrar panel de confirmación
-    mostrarPanelConfirmacion();     
+    mostrarPanelConfirmacion();
 });
 
-function limpieza(){
+
+// ===========================
+// LIMPIEZA DEL CARRITO
+// ===========================
+function limpieza() {
     carrito = [];
     localStorage.removeItem("carrito");
     localStorage.removeItem("FinalizoCompra");
     actualizarContador();
     localStorage.setItem("FinalizoCompra", "false");
-    cerrarCarrito()
+    cerrarCarrito();
 }
 
 // Botón "Sí, completé el pedido"
 document.getElementById("btn-confirm-si").addEventListener("click", () => {
-    limpieza();                 // Limpia carrito y resetea flag
-    cerrarPanelConfirmacion();  // Cierra panel
+    limpieza();
+    cerrarPanelConfirmacion();
 });
 
 // Botón "Seguir navegando"
 document.getElementById("btn-confirm-no").addEventListener("click", () => {
-    localStorage.setItem("FinalizoCompra", "false"); // Marca como no finalizado
-    cerrarPanelConfirmacion();                       // Solo cierra panel
+    localStorage.setItem("FinalizoCompra", "false");
+    cerrarPanelConfirmacion();
 });
 
 document.getElementById("btn-limpiar").addEventListener("click", () => {
@@ -245,17 +336,13 @@ document.getElementById("btn-limpiar").addEventListener("click", () => {
         return;
     }
 
-    // Ejecuta tu limpieza total
-     // Mostrar panel de confirmación
-     document.getElementById("confirm-limpiar").classList.remove("hidden");
-
-
+    // Mostrar panel de confirmación de limpiar
+    document.getElementById("confirm-limpiar").classList.remove("hidden");
 });
 
 // Si confirma limpiar
 document.getElementById("btn-limpiar-si").addEventListener("click", () => {
-    limpieza(); // ejecuta tu limpieza total
-
+    limpieza();
     document.getElementById("confirm-limpiar").classList.add("hidden");
 });
 
@@ -263,4 +350,3 @@ document.getElementById("btn-limpiar-si").addEventListener("click", () => {
 document.getElementById("btn-limpiar-no").addEventListener("click", () => {
     document.getElementById("confirm-limpiar").classList.add("hidden");
 });
-

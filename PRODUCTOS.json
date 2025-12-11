@@ -1,0 +1,268 @@
+{
+  "AMISTAD": [
+    {
+      "nombre": "Girasol Decorado",
+      "precio": 3500,
+      "imagen": "./img/Girasol Rosa.png",
+      "disponible": true
+    },
+    {
+      "nombre": "Mini Ramo Girasoles",
+      "precio": 8500,
+      "imagen": "./img/Girasol Rosa.png",
+      "disponible": true
+    },
+    {
+      "nombre": "Mini Ramo Deluxe Girasoles",
+      "precio": 8900,
+      "imagen": "./img/Girasol Rosa.png",
+      "disponible": true
+    },
+    {
+      "nombre": "Mini Ramo Deluxe Rosas",
+      "precio": 8900,
+      "imagen": "./img/Girasol Rosa.png",
+      "disponible": true
+    },
+    {
+      "nombre": "Ramo 5 Claveles",
+      "precio": 11500,
+      "imagen": "./img/Girasol Rosa.png",
+      "disponible": true
+    },
+    {
+      "nombre": "Ramo 5 Gerberas",
+      "precio": 12500,
+      "imagen": "./img/Girasol Rosa.png",
+      "disponible": true
+    }
+  ],
+
+  "ANIVERSARIO": [
+    {
+      "nombre": "Ramo Amore",
+      "precio": 27900,
+      "imagen": "./img/Girasol Rosa.png",
+      "disponible": true
+    },
+    {
+      "nombre": "Ramo Antonella Premium",
+      "precio": 28800,
+      "imagen": "./img/Girasol Rosa.png",
+      "disponible": true
+    },
+    {
+      "nombre": "Ramo Cariño",
+      "precio": 21900,
+      "imagen": "./img/Girasol Rosa.png",
+      "disponible": true
+    },
+    {
+      "nombre": "Ramo Classico GiraRosas",
+      "precio": 24800,
+      "imagen": "./img/Girasol Rosa.png",
+      "disponible": true
+    },
+    {
+      "nombre": "Ramo Dulce Amor",
+      "precio": 32900,
+      "imagen": "./img/Girasol Rosa.png",
+      "disponible": true
+    },
+    {
+      "nombre": "Ramo Enamorado",
+      "precio": 24800,
+      "imagen": "./img/Girasol Rosa.png",
+      "disponible": true
+    },
+    {
+      "nombre": "Ramo Especial de Rosas y Girasoles",
+      "precio": 45800,
+      "imagen": "./img/Girasol Rosa.png",
+      "disponible": true
+    },
+    {
+      "nombre": "Ramo Fantasía",
+      "precio": 28800,
+      "imagen": "./img/Girasol Rosa.png",
+      "disponible": true
+    },
+    {
+      "nombre": "Ramo Lirios",
+      "precio": 35800,
+      "imagen": "./img/Girasol Rosa.png",
+      "disponible": true
+    }
+  ],
+
+  "BODAS_Y_ANIVERSARIOS": [
+    {
+      "nombre": "Ramo Rosas Extra Grande",
+      "precio": 59800,
+      "imagen": "./img/Girasol Rosa.png",
+      "disponible": true
+    },
+    {
+      "nombre": "Ramo Rosas Inspiration",
+      "precio": "Personalizable",
+      "imagen": "./img/Girasol Rosa.png",
+      "disponible": true
+    }
+  ],
+
+  "CONDOLENCIAS": [
+    {
+      "nombre": "Ramo White",
+      "precio": 23800,
+      "imagen": "./img/Girasol Rosa.png",
+      "disponible": true
+    },
+    {
+      "nombre": "Tributo Blanco 360",
+      "precio": "Personalizable",
+      "imagen": "./img/Girasol Rosa.png",
+      "disponible": true
+    },
+    {
+      "nombre": "Tributo Blanco Frontal",
+      "precio": "Personalizable",
+      "imagen": "./img/Girasol Rosa.png",
+      "disponible": true
+    },
+    {
+      "nombre": "Tributo Colorido",
+      "precio": "Personalizable",
+      "imagen": "./img/Girasol Rosa.png",
+      "disponible": true
+    },
+    {
+      "nombre": "Tributo Moderno",
+      "precio": "Personalizable",
+      "imagen": "./img/Girasol Rosa.png",
+      "disponible": true
+    }
+  ],
+
+  "CUMPLEANOS": [
+    {
+      "nombre": "Arreglo Cumpleaños con Globo",
+      "precio": "Personalizable",
+      "imagen": "./img/Girasol Rosa.png",
+      "disponible": true
+    },
+    {
+      "nombre": "Blum Bouquet",
+      "precio": 21800,
+      "imagen": "./img/Girasol Rosa.png",
+      "disponible": true
+    },
+    {
+      "nombre": "Ramo Garden",
+      "precio": 19800,
+      "imagen": "./img/Girasol Rosa.png",
+      "disponible": true
+    },
+    {
+      "nombre": "Ramo Primaveral Extra Grande",
+      "precio": 49800,
+      "imagen": "./img/Girasol Rosa.png",
+      "disponible": true
+    },
+    {
+      "nombre": "Ramo Primaveral Grande",
+      "precio": 23800,
+      "imagen": "./img/Girasol Rosa.png",
+      "disponible": true
+    },
+    {
+      "nombre": "Ramo Primaveral Mediano",
+      "precio": 13800,
+      "imagen": "./img/Girasol Rosa.png",
+      "disponible": true
+    },
+    {
+      "nombre": "Ramo Primaveral Pequeño",
+      "precio": 9900,
+      "imagen": "./img/Girasol Rosa.png",
+      "disponible": true
+    },
+    {
+      "nombre": "Ramo Sunflowers",
+      "precio": 18900,
+      "imagen": "./img/Girasol Rosa.png",
+      "disponible": true
+    }
+  ],
+
+  "DECORACION_DE_EVENTOS": [
+    {
+      "nombre": "Arreglo Iglesia 1",
+      "precio": "Personalizable",
+      "imagen": "./img/Girasol Rosa.png",
+      "disponible": true
+    },
+    {
+      "nombre": "Arreglo Iglesia 2",
+      "precio": "Personalizable",
+      "imagen": "./img/Girasol Rosa.png",
+      "disponible": true
+    },
+    {
+      "nombre": "Arreglo Tropical",
+      "precio": "Personalizable",
+      "imagen": "./img/Girasol Rosa.png",
+      "disponible": true
+    }
+  ],
+
+  "SOLO_PORQUE_SI": [
+    {
+      "nombre": "Mini Ramo de Rosas",
+      "precio": 8500,
+      "imagen": "./img/Girasol Rosa.png",
+      "disponible": true
+    },
+    {
+      "nombre": "Ramo Sweet",
+      "precio": 23800,
+      "imagen": "./img/Girasol Rosa.png",
+      "disponible": true
+    }
+  ],
+
+  "PERSONALIZADO": [
+    {
+      "nombre": "Personaliza Tu Estilo y Presupuesto",
+      "precio": "Personalizable",
+      "imagen": "./img/Girasol Rosa.png",
+      "disponible": true
+    }
+  ],
+
+  "PROPUESTA": [
+    {
+      "nombre": "Ramo Antonella",
+      "precio": 21900,
+      "imagen": "./img/Girasol Rosa.png",
+      "disponible": true
+    },
+    {
+      "nombre": "Ramo Frontal de Rosas",
+      "precio": 24800,
+      "imagen": "./img/Girasol Rosa.png",
+      "disponible": true
+    },
+    {
+      "nombre": "Ramo Romantic",
+      "precio": 19800,
+      "imagen": "./img/Girasol Rosa.png",
+      "disponible": true
+    },
+    {
+      "nombre": "Ramo Ternura",
+      "precio": 21900,
+      "imagen": "./img/Girasol Rosa.png",
+      "disponible": true
+    }
+  ]
+}

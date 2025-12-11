@@ -1,19 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
+<head>
     <meta charset="UTF-8">
-    <title>Blum floristeria</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- 🔍 SEO PRINCIPAL -->
+    <title>Blum Floristería | Flores con Encanto en San Pablo de Heredia</title>
+    <meta name="description" content="Blum Floristería en San Pablo de Heredia. Arreglos florales, ramos, detalles personalizados, entregas rápidas y flores con encanto para toda ocasión. Regala momentos inolvidables.">
+    <meta name="keywords" content="floristería en Heredia, flores San Pablo, arreglos florales Costa Rica, ramos de flores, floristería Blum, flores a domicilio Heredia, regalos florales, ramos personalizados, girasoles, rosas, floristería San Pablo">
+    <meta name="author" content="Blum Floristería">
+
+    <!-- 🌎 SEO LOCAL -->
+    <meta name="geo.region" content="CR-H">
+    <meta name="geo.placename" content="San Pablo de Heredia">
+    <meta name="geo.position" content="10.0032;-84.111">
+    <meta name="ICBM" content="10.0032, -84.111">
+
+    <!-- 🌐 OPEN GRAPH (Facebook, WhatsApp, Instagram Preview) -->
+    <meta property="og:title" content="Blum Floristería | Flores con Encanto en Heredia">
+    <meta property="og:description" content="Arreglos florales únicos, personalizados y con entrega rápida en San Pablo de Heredia. Flores con encanto para cada ocasión.">
+    <meta property="og:image" content="https://github.com/TestJuz/BlumFloristeria/blob/main/img/LOGO%20FINAL%20BLUM%20octubre%2025.png"> <!-- Cambia esta imagen si tienes una -->
+    <meta property="og:url" content="https://www.blumfloristeria.com">
+    <meta property="og:type" content="website">
+
+    <!-- 🐦 TWITTER CARD -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Blum Floristería | Flores con Encanto">
+    <meta name="twitter:description" content="Arreglos florales y detalles únicos en San Pablo de Heredia.">
+    <meta name="twitter:image" content="https://github.com/TestJuz/BlumFloristeria/blob/main/img/LOGO%20FINAL%20BLUM%20octubre%2025.png">
+
+    <!-- 🌸 FAVICON -->
+    <link rel="icon" type="image/x-icon" href="./img/favicon.ico">
+
+    <!-- 🔠 FUENTES Y ESTILOS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" />
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" /><link rel="stylesheet" href="https://public.codepenassets.com/css/reset-2.0.min.css">
-<link rel="stylesheet" href="./style.css">
-<script src="https://public.codepenassets.com/js/prefixfree-1.0.7.min.js"></script>
 
-  </head>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+
+    <!-- ÍCONOS -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+
+    <!-- ESTILOS LOCALES -->
+    <link rel="stylesheet" href="./style.css">
+
+    <!-- JS -->
+    <script src="https://public.codepenassets.com/js/prefixfree-1.0.7.min.js"></script>
+</head>
+
     
   <body>
   <header>
@@ -151,61 +188,11 @@
     <h2>Nuestros Productos</h2>
     <p class="descripcion">Elige tu arreglo favorito y añádelo al carrito para completar tu pedido por WhatsApp.</p>
 
-    <div class="productos-grid">
+    <div class="productos-grid" id="productos-grid">
 
-        <div class="producto-card">
-            <div class="producto-img">
-                <img src="./img/Girasol y Rosa.png" alt="Arreglo 1">
-            </div>
-            <h3>Arreglo #1</h3>
-            <p class="producto-descripcion">Girasoles y rosas frescas, ideal para regalar.</p>
-            <span class="precio">₡22,000</span>
-            <button class="btn-add" data-name="Arreglo #1" data-price="22000">
-                <span class="material-symbols-outlined">shopping_cart</span>
-                Añadir al carrito
-            </button>
-        </div>
-
-        <div class="producto-card">
-            <div class="producto-img">
-                <img src="./img/Rosa Girasol Rosa.png" alt="Arreglo 2">
-            </div>
-            <h3>Arreglo #2</h3>
-            <p class="producto-descripcion">Tonos rosados para ocasiones especiales.</p>
-            <span class="precio">₡18,500</span>
-            <button class="btn-add" data-name="Arreglo #2" data-price="18500">
-                <span class="material-symbols-outlined">shopping_cart</span>
-                Añadir al carrito
-            </button>
-        </div>
-
-        <div class="producto-card">
-            <div class="producto-img">
-                <img src="./img/Girasol Rosa.png" alt="Arreglo 3">
-            </div>
-            <h3>Arreglo #3</h3>
-            <p class="producto-descripcion">Rosas y girasol para momentos inolvidables.</p>
-            <span class="precio">₡20,000</span>
-            <button class="btn-add" data-name="Arreglo #3" data-price="20000">
-                <span class="material-symbols-outlined">shopping_cart</span>
-                Añadir al carrito
-            </button>
-        </div>
-
-        <div class="producto-card">
-            <div class="producto-img">
-                <img src="./img/Gerbera Rosa.png" alt="Arreglo 4">
-            </div>
-            <h3>Arreglo #4</h3>
-            <p class="producto-descripcion">Gerberas rosadas elegantes y frescas.</p>
-            <span class="precio">₡23,000</span>
-            <button class="btn-add" data-name="Arreglo #4" data-price="23000">
-                <span class="material-symbols-outlined">shopping_cart</span>
-                Añadir al carrito
-            </button>
-        </div>
 
     </div>
+
 <button onclick="enviarCarrito()" class="btn-filled-dark btn-enviar-pedido">
     <span class="material-symbols-outlined">shopping_cart</span>
     Enviar pedido
@@ -233,12 +220,12 @@
             <p>Martes - Viernes 10:00 AM - 5:30 PM</p>
             <p>Sábado - Domingo 10:00 AM - 2:00 PM</p>
             <div class="btn-group">
-                <a href="#"
+                <a href="https://waze.com/ul/hd1u0y5nbj"
                     target="_blank"
                     class="btn-outline-dark btn-hover-color">
                     <span class="material-symbols-outlined">Map</span> Waze
                 </a>
-                <a href="#"
+                <a href="https://maps.app.goo.gl/JQw4D34HEqtfSsXu7"
                     target="_blank"
                     class="btn-outline-dark btn-hover-color">
                     <span class="material-symbols-outlined">pin_drop</span> Maps
@@ -252,28 +239,31 @@
             </div>
         </div>
     </section>
-     <section id="aboutUs">
-
-        <div>
-            <h2>Acerca de nosotros</h2>
-            <p>Lunes Cerrado</p>
-            <p>Martes - Viernes 10:00 AM - 5:30 PM</p>
-            <p>Sábado - Domingo 10:00 AM - 2:00 PM</p>
-            <div class="btn-group">
-                <button class="btn-filled-dark"><span class="material-symbols-outlined">
-                    Map
-                    </span>Waze
-                </button>
-                <button class="btn-filled-dark"><span class="material-symbols-outlined">
-                    pin_drop
-                    </span>Maps
-                </button>
-                <button class="btn-outline-dark btn-hover-color"><span class="material-symbols-outlined">
-                chat
-                </span> Contactanos</button>
-            </div>
+<section id="aboutUs">
+    <div class="about-wrapper">
+        <div class="about-img">
+            <img src="./img/aboutus.jpg" alt="Acerca de Blum">
         </div>
-    </section>
+
+        <div class="about-text">
+            <h2>Acerca de nosotros</h2>
+
+            <p>
+                Todo nace del corazón de los momentos que viven las personas. Cada ramo surge de escuchar,
+                entender y poner verdadero esmero en lo que hacemos. Trabajamos con inspiración, sí, pero
+                también con disciplina y detalle: elegimos cada flor para que tenga un sentido, no solo una forma.
+            </p>
+
+            <p>
+                Creemos que la diferencia está en cómo tratamos a cada cliente y en el cuidado que ponemos en
+                cada entrega. Eso es Blum: flores pensadas para acompañar la vida real, con autenticidad y
+                calidad: <strong>flores con encanto.</strong>
+            </p>
+        </div>
+    </div>
+</section>
+
+
 
     <section id="FAQ">
         <div>
@@ -409,41 +399,54 @@
     </div>
 
 
-    <footer>
- <!--
-        <ul>
-            Products
-            <li><a href="#">Food &amp; Treats</a></li>
-            <li><a href="#">Toys</a></li>
-            <li><a href="#">Beds &amp; Furniture</a></li>
-            <li><a href="#">Outdoor Supplies</a></li>
-            <li><a href="#">Clothing</a></li>
-            <li><a href="#">Aquariums</a></li>
-            <li><a href="#">Rocks &amp; Decorations</a></li>
+<footer id="footer-blum">
+
+    <div class="footer-container">
+
+        <h3 class="footer-title">Síguenos</h3>
+
+        <ul class="footer-social">
+
+            <li>
+                <a href="https://www.instagram.com/blum.flores.y.regalos?igsh=MzBlbXFpanFna2hz&utm_source=qr" 
+                   target="_blank">
+                    <span class="material-symbols-rounded">photo_camera</span>
+                    Instagram: blum.floristeria
+                </a>
+            </li>
+
+            <li>
+                <a href="https://www.facebook.com/share/wxt4udGcUkFnje2s/?mibextid=ibOpuV"
+                   target="_blank">
+                    <span class="material-symbols-rounded">groups</span>
+                    Facebook: Blum Floristería
+                </a>
+            </li>
+
+            <li>
+                <a href="https://wa.me/50683551919"
+                   target="_blank">
+                    <span class="material-symbols-rounded">chat</span>
+                    WhatsApp: 8355-1919
+                </a>
+            </li>
+
+            <li>
+                <a href="https://www.tiktok.com/@blumfloresyregalos?_t=8lDdDKOMm0r&_r=1"
+                   target="_blank">
+                    <span class="material-symbols-rounded">music_note</span>
+                    TikTok: blumfloristeria
+                </a>
+            </li>
+
         </ul>
 
-        <ul>
-            Shop by Pet
-            <li><a href="#">Dogs</a></li>
-            <li><a href="#">Cats</a></li>
-            <li><a href="#">Birds</a></li>
-            <li><a href="#">Fish</a></li>
-        </ul>
+        <p class="footer-copy">© 2025 Blum Floristería · Flores con encanto</p>
 
+    </div>
 
-        <ul>
-            Our Services
-            <li><a href="#">Grooming</a></li>
-            <li><a href="#">Boarding</a></li>
-        </ul>
-        <ul>
-            Our Company
-            <li><a href="#">Locations &amp; Hours</a></li>
-            <li><a href="#">About Us</a></li>
-        </ul>
+</footer>
 
--->
-    </footer>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDiMUDsSsBdJM8d-PxOhpbL8YA7ISf_7bk&libraries=places&language=es&region=CR"></script>
     <script  src="./script.js"></script>
     <!--<script src="https://apps.elfsight.com/p/platform.js" defer></script-->
