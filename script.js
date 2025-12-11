@@ -92,7 +92,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     card.innerHTML = `
                         <div class="producto-img">
-                            <img src="${producto.imagen}" alt="${producto.nombre}">
+                            <img src="${producto.imagen}" alt="${producto.nombre}" loading="lazy">
                         </div>
                         <h3>${producto.nombre}</h3>
                         <p class="producto-descripcion">${categoria.replace(/_/g, " ")}</p>
