@@ -44,17 +44,21 @@ document.addEventListener("DOMContentLoaded", () => {
 // CARGA DE PRODUCTOS + ADD TO CART
 // ===========================
 document.addEventListener("DOMContentLoaded", () => {
-    const grid = document.getElementById('productos-grid');
+    const grid = document.getElementById("productos-grid");
+    const categoriaSelect = document.getElementById("categoriaSelect");
 
-    // 🟣 Delegación de eventos para todos los .btn-add
+    let productosData = {}; // guardamos el JSON aquí
+
+    /* ===============================
+       🛒 Delegación de eventos carrito
+    ================================ */
     grid.addEventListener("click", (event) => {
         const btn = event.target.closest(".btn-add");
-        if (!btn) return; // si no clickeaste en un botón, salir
+        if (!btn) return;
 
         const nombre = btn.dataset.name;
         const rawPrice = btn.dataset.price;
 
-        // precio: número o null si es personalizable
         const precio = (rawPrice === "" || rawPrice === undefined)
             ? null
             : Number(rawPrice);
@@ -72,45 +76,91 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         guardarCarrito();
-        renderCarrito(); // actualiza panel si está abierto
+        renderCarrito();
     });
 
-    // 🟣 Cargar productos y crear las cards
-    fetch('./Products.json')
-        .then(response => response.json())
+    /* ===============================
+       🔧 Helpers
+    ================================ */
+    function formatearCategoria(cat) {
+        return cat.replace(/_/g, " ");
+    }
+
+    function formatearPrecio(precio) {
+        if (precio === null) return "Personalizable";
+        if (typeof precio === "string") return precio;
+        return `₡${precio.toLocaleString("es-CR")}`;
+    }
+
+    /* ===============================
+       🎨 Render productos
+    ================================ */
+    function renderProductos(categoria = "ALL") {
+        grid.innerHTML = "";
+
+        const categorias = (categoria === "ALL")
+            ? Object.keys(productosData)
+            : [categoria];
+
+        categorias.forEach(cat => {
+            productosData[cat].forEach(producto => {
+                if (producto.disponible === false) return;
+
+                const card = document.createElement("div");
+                card.classList.add("producto-card");
+
+                card.innerHTML = `
+                    <div class="producto-img">
+                        <img src="${producto.imagen}" alt="${producto.nombre}" loading="lazy">
+                    </div>
+                    <h3>${producto.nombre}</h3>
+                    <p class="producto-descripcion">${formatearCategoria(cat)}</p>
+                    <span class="precio">${formatearPrecio(producto.precio)}</span>
+                    <button class="btn-add"
+                        data-name="${producto.nombre}"
+                        data-price="${typeof producto.precio === "number" ? producto.precio : ""}">
+                        <span class="material-symbols-outlined">shopping_cart</span>
+                        Añadir al carrito
+                    </button>
+                `;
+
+                grid.appendChild(card);
+            });
+        });
+    }
+
+    /* ===============================
+       🧭 Cargar categorías al select
+    ================================ */
+    function cargarCategorias() {
+        categoriaSelect.innerHTML = `<option value="ALL">TODAS</option>`;
+
+        Object.keys(productosData).forEach(cat => {
+            const opt = document.createElement("option");
+            opt.value = cat;
+            opt.textContent = formatearCategoria(cat);
+            categoriaSelect.appendChild(opt);
+        });
+    }
+
+    /* ===============================
+       📦 Fetch productos
+    ================================ */
+    fetch("./Products.json")
+        .then(res => res.json())
         .then(data => {
+            productosData = data;
 
-            Object.keys(data).forEach(categoria => {
-                data[categoria].forEach(producto => {
+            cargarCategorias();
+            renderProductos("ALL");
 
-                    const precioTexto = producto.precio === null
-                        ? "Personalizable"
-                        : `₡${producto.precio.toLocaleString("es-CR")}`;
-
-                    const card = document.createElement('div');
-                    card.classList.add('producto-card');
-
-                    card.innerHTML = `
-                        <div class="producto-img">
-                            <img src="${producto.imagen}" alt="${producto.nombre}" loading="lazy">
-                        </div>
-                        <h3>${producto.nombre}</h3>
-                        <p class="producto-descripcion">${categoria.replace(/_/g, " ")}</p>
-                        <span class="precio">${precioTexto}</span>
-                        <button class="btn-add"
-                            data-name="${producto.nombre}"
-                            data-price="${producto.precio !== null ? producto.precio : ""}">
-                            <span class="material-symbols-outlined">shopping_cart</span>
-                            Añadir al carrito
-                        </button>
-                    `;
-
-                    grid.appendChild(card);
-                });
+            categoriaSelect.addEventListener("change", (e) => {
+                renderProductos(e.target.value);
             });
         })
-        .catch(error => console.error("Error cargando productos:", error));
+        .catch(err => console.error("Error cargando productos:", err));
 });
+
 
 
 // ===========================
