@@ -1599,3 +1599,21 @@ a.btn-outline-dark.btn-hover-color:hover {
     font-size: 14px;
     opacity: 0.8;
 }
+
+.filtros {
+  font-size: 24px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: center;
+  margin: 24px auto 40px;
+  flex-wrap: wrap;
+}
+
+.filtros select {
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(0,0,0,0.15);
+  font-size: 24px;
+  background: var(--light-02);
+}
