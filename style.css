@@ -1623,4 +1623,17 @@ html {
 .btn-link {
   text-decoration: none;
 }
+.whatsapp-floating {
+  width: 60px;
+  height: 60px;
+  background: #25D366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.whatsapp-floating .fa-whatsapp {
+  font-size: 45px; /* 90% de 60px */
+}
 
