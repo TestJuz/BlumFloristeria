@@ -1,23 +1,31 @@
 {
-  "AMISTAD": [
-    {
+  "GIRASOLES":[
+        {
       "nombre": "Girasol Decorado",
       "precio": 3500,
-      "imagen": "./img/Arreglos/AMISTAD/girasol_decorado.png",
-      "disponible": true
+      "imagen": "./img/Arreglos/GIRASOLES/girasol_decorado.png",
+      "disponible": false
     },
     {
       "nombre": "Mini Ramo Girasoles",
       "precio": 8500,
-      "imagen": "./img/Arreglos/AMISTAD/mini_ramo_girasoles.png",
+      "imagen": "./img/Arreglos/GIRASOLES/mini_ramo_girasoles.png",
       "disponible": true
     },
     {
       "nombre": "Mini Ramo Deluxe Girasoles",
       "precio": 8900,
-      "imagen": "./img/Arreglos/AMISTAD/mini_ramo_deluxe_girasoles.png",
+      "imagen": "./img/Arreglos/GIRASOLES/mini_ramo_deluxe_girasoles.png",
       "disponible": true
     },
+    {
+      "nombre": "Girasoles Enamorados",
+      "precio": 20900,
+      "imagen": "./img/Arreglos/GIRASOLES/girasoles_enamorados.png",
+      "disponible": true
+    }
+  ],
+  "AMISTAD": [
     {
       "nombre": "Mini Ramo Deluxe Rosas",
       "precio": 8900,
@@ -98,7 +106,7 @@
   "BODAS_Y_ANIVERSARIOS": [
     {
       "nombre": "Ramo Rosas Extra Grande",
-      "precio": 59800,
+      "precio": 89900,
       "imagen": "./img/Arreglos/BODAS_Y_ANIVERSARIOS/ramo_rosas_extra_grande.png",
       "disponible": true
     },
@@ -133,12 +141,6 @@
       "nombre": "Tributo Colorido",
       "precio": "Personalizable",
       "imagen": "./img/Arreglos/CONDOLENCIAS/tributo_colorido.png",
-      "disponible": true
-    },
-    {
-      "nombre": "Tributo Moderno",
-      "precio": "Personalizable",
-      "imagen": "./img/Arreglos/CONDOLENCIAS/tributo_moderno.png",
       "disponible": true
     }
   ],
@@ -226,6 +228,12 @@
       "nombre": "Ramo Sweet",
       "precio": 23800,
       "imagen": "./img/Arreglos/SOLO_PORQUE_SI/ramo_sweet.png",
+      "disponible": true
+    },
+    {
+      "nombre": "Ramo Sweet lila",
+      "precio": 23800,
+      "imagen": "./img/Arreglos/SOLO_PORQUE_SI/ramo_sweet_lila.png",
       "disponible": true
     }
   ],
