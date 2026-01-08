@@ -1617,3 +1617,10 @@ a.btn-outline-dark.btn-hover-color:hover {
   font-size: 24px;
   background: var(--light-02);
 }
+html {
+  scroll-behavior: smooth;
+}
+.btn-link {
+  text-decoration: none;
+}
+
