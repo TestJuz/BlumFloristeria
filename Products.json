@@ -4,7 +4,7 @@
       "nombre": "Girasol Decorado",
       "precio": 3500,
       "imagen": "./img/Arreglos/GIRASOLES/girasol_decorado.png",
-      "disponible": false
+      "disponible": true
     },
     {
       "nombre": "Mini Ramo Girasoles",
