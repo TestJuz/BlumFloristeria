@@ -10,19 +10,19 @@
       "nombre": "Mini Ramo Girasoles",
       "precio": 8500,
       "imagen": "./img/Arreglos/GIRASOLES/mini_ramo_girasoles.png",
-      "disponible": true
+      "disponible": false
     },
     {
       "nombre": "Mini Ramo Deluxe Girasoles",
       "precio": 8900,
       "imagen": "./img/Arreglos/GIRASOLES/mini_ramo_deluxe_girasoles.png",
-      "disponible": true
+      "disponible": false
     },
     {
       "nombre": "Girasoles Enamorados",
       "precio": 20900,
       "imagen": "./img/Arreglos/GIRASOLES/girasoles_enamorados.png",
-      "disponible": true
+      "disponible": false
     }
   ],
   "AMISTAD": [
@@ -30,19 +30,19 @@
       "nombre": "Mini Ramo Deluxe Rosas",
       "precio": 8900,
       "imagen": "./img/Arreglos/AMISTAD/mini_ramo_deluxe_rosas.png",
-      "disponible": true
+      "disponible": false
     },
     {
       "nombre": "Ramo 5 Claveles",
       "precio": 11500,
       "imagen": "./img/Arreglos/AMISTAD/ramo_5_claveles.png",
-      "disponible": true
+      "disponible": false
     },
     {
       "nombre": "Ramo 5 Gerberas",
       "precio": 12500,
       "imagen": "./img/Arreglos/AMISTAD/ramo_5_gerberas.png",
-      "disponible": true
+      "disponible": false
     }
   ],
 
@@ -51,55 +51,55 @@
       "nombre": "Ramo Amore",
       "precio": 27900,
       "imagen": "./img/Arreglos/ANIVERSARIO/ramo_amore.png",
-      "disponible": true
+      "disponible": false
     },
     {
       "nombre": "Ramo Antonella Premium",
       "precio": 28800,
       "imagen": "./img/Arreglos/ANIVERSARIO/ramo_antonella_premium.png",
-      "disponible": true
+      "disponible": false
     },
     {
       "nombre": "Ramo Cariño",
       "precio": 21900,
       "imagen": "./img/Arreglos/ANIVERSARIO/ramo_carino.png",
-      "disponible": true
+      "disponible": false
     },
     {
       "nombre": "Ramo Classico GiraRosas",
       "precio": 24800,
       "imagen": "./img/Arreglos/ANIVERSARIO/ramo_classico_girarosas.png",
-      "disponible": true
+      "disponible": false
     },
     {
       "nombre": "Ramo Dulce Amor",
       "precio": 32900,
       "imagen": "./img/Arreglos/ANIVERSARIO/ramo_dulce_amor.png",
-      "disponible": true
+      "disponible": false
     },
     {
       "nombre": "Ramo Enamorado",
       "precio": 24800,
       "imagen": "./img/Arreglos/ANIVERSARIO/ramo_enamorado.png",
-      "disponible": true
+      "disponible": false
     },
     {
       "nombre": "Ramo Especial de Rosas y Girasoles",
       "precio": 45800,
       "imagen": "./img/Arreglos/ANIVERSARIO/ramo_especial_de_rosas_y_girasoles.png",
-      "disponible": true
+      "disponible": false
     },
     {
       "nombre": "Ramo Fantasía",
       "precio": 28800,
       "imagen": "./img/Arreglos/ANIVERSARIO/ramo_fantasia.png",
-      "disponible": true
+      "disponible": false
     },
     {
       "nombre": "Ramo Lirios",
       "precio": 35800,
       "imagen": "./img/Arreglos/ANIVERSARIO/ramo_lirios.png",
-      "disponible": true
+      "disponible": false
     }
   ],
 
@@ -108,13 +108,13 @@
       "nombre": "Ramo Rosas Extra Grande",
       "precio": 89900,
       "imagen": "./img/Arreglos/BODAS_Y_ANIVERSARIOS/ramo_rosas_extra_grande.png",
-      "disponible": true
+      "disponible": false
     },
     {
       "nombre": "Ramo Rosas Inspiration",
       "precio": "Personalizable",
       "imagen": "./img/Arreglos/BODAS_Y_ANIVERSARIOS/ramo_rosas_inspiration.png",
-      "disponible": true
+      "disponible": false
     }
   ],
 
@@ -123,25 +123,25 @@
       "nombre": "Ramo White",
       "precio": 23800,
       "imagen": "./img/Arreglos/CONDOLENCIAS/ramo_white.png",
-      "disponible": true
+      "disponible": false
     },
     {
       "nombre": "Tributo Blanco 360",
       "precio": "Personalizable",
       "imagen": "./img/Arreglos/CONDOLENCIAS/tributo_blanco_360.png",
-      "disponible": true
+      "disponible": false
     },
     {
       "nombre": "Tributo Blanco Frontal",
       "precio": "Personalizable",
       "imagen": "./img/Arreglos/CONDOLENCIAS/tributo_blanco_frontal.png",
-      "disponible": true
+      "disponible": false
     },
     {
       "nombre": "Tributo Colorido",
       "precio": "Personalizable",
       "imagen": "./img/Arreglos/CONDOLENCIAS/tributo_colorido.png",
-      "disponible": true
+      "disponible": false
     }
   ],
 
@@ -150,49 +150,49 @@
       "nombre": "Arreglo Cumpleaños con Globo",
       "precio": "Personalizable",
       "imagen": "./img/Arreglos/CUMPLEAÑOS/arreglo_cumpleanos_con_globo.png",
-      "disponible": true
+      "disponible": false
     },
     {
       "nombre": "Blum Bouquet",
       "precio": 21800,
       "imagen": "./img/Arreglos/CUMPLEAÑOS/blum_bouquet.png",
-      "disponible": true
+      "disponible": false
     },
     {
       "nombre": "Ramo Garden",
       "precio": 19800,
       "imagen": "./img/Arreglos/CUMPLEAÑOS/ramo_garden.png",
-      "disponible": true
+      "disponible": false
     },
     {
       "nombre": "Ramo Primaveral Extra Grande",
       "precio": 49800,
       "imagen": "./img/Arreglos/CUMPLEAÑOS/ramo_primaveral_extra_grande.png",
-      "disponible": true
+      "disponible": false
     },
     {
       "nombre": "Ramo Primaveral Grande",
       "precio": 23800,
       "imagen": "./img/Arreglos/CUMPLEAÑOS/ramo_primaveral_grande.png",
-      "disponible": true
+      "disponible": false
     },
     {
       "nombre": "Ramo Primaveral Mediano",
       "precio": 13800,
       "imagen": "./img/Arreglos/CUMPLEAÑOS/ramo_primaveral_mediano.png",
-      "disponible": true
+      "disponible": false
     },
     {
       "nombre": "Ramo Primaveral Pequeño",
       "precio": 9900,
       "imagen": "./img/Arreglos/CUMPLEAÑOS/ramo_primaveral_pequeno.png",
-      "disponible": true
+      "disponible": false
     },
     {
       "nombre": "Ramo Sunflowers",
       "precio": 18900,
       "imagen": "./img/Arreglos/CUMPLEAÑOS/ramo_sunflowers.png",
-      "disponible": true
+      "disponible": false
     }
   ],
 
@@ -201,19 +201,19 @@
       "nombre": "Arreglo Iglesia 1",
       "precio": "Personalizable",
       "imagen": "./img/Arreglos/DECORACION_DE_EVENTOS/arreglo_iglesia_1.png",
-      "disponible": true
+      "disponible": false
     },
     {
       "nombre": "Arreglo Iglesia 2",
       "precio": "Personalizable",
       "imagen": "./img/Arreglos/DECORACION_DE_EVENTOS/arreglo_iglesia_2.png",
-      "disponible": true
+      "disponible": false
     },
     {
       "nombre": "Arreglo Tropical",
       "precio": "Personalizable",
       "imagen": "./img/Arreglos/DECORACION_DE_EVENTOS/arreglo_tropical.png",
-      "disponible": true
+      "disponible": false
     }
   ],
 
@@ -222,19 +222,19 @@
       "nombre": "Mini Ramo de Rosas",
       "precio": 8500,
       "imagen": "./img/Arreglos/SOLO_PORQUE_SI/mini_ramo_de_rosas.png",
-      "disponible": true
+      "disponible": false
     },
     {
       "nombre": "Ramo Sweet",
       "precio": 23800,
       "imagen": "./img/Arreglos/SOLO_PORQUE_SI/ramo_sweet.png",
-      "disponible": true
+      "disponible": false
     },
     {
       "nombre": "Ramo Sweet lila",
       "precio": 23800,
       "imagen": "./img/Arreglos/SOLO_PORQUE_SI/ramo_sweet_lila.png",
-      "disponible": true
+      "disponible": false
     }
   ],
 
@@ -243,7 +243,7 @@
       "nombre": "Personaliza Tu Estilo y Presupuesto",
       "precio": "Personalizable",
       "imagen": "./img/Arreglos/PERSONALIZADO/personaliza_tu_estilo_y_presupuesto.png",
-      "disponible": true
+      "disponible": false
     }
   ],
 
@@ -252,25 +252,25 @@
       "nombre": "Ramo Antonella",
       "precio": 21900,
       "imagen": "./img/Arreglos/PROPUESTA/ramo_antonella.png",
-      "disponible": true
+      "disponible": false
     },
     {
       "nombre": "Ramo Frontal de Rosas",
       "precio": 24800,
       "imagen": "./img/Arreglos/PROPUESTA/ramo_frontal_de_rosas.png",
-      "disponible": true
+      "disponible": false
     },
     {
       "nombre": "Ramo Romantic",
       "precio": 19800,
       "imagen": "./img/Arreglos/PROPUESTA/ramo_romantic.png",
-      "disponible": true
+      "disponible": false
     },
     {
       "nombre": "Ramo Ternura",
       "precio": 21900,
       "imagen": "./img/Arreglos/PROPUESTA/ramo_ternura.png",
-      "disponible": true
+      "disponible": false
     }
   ]
 }

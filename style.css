@@ -1637,3 +1637,5 @@ html {
   font-size: 45px; /* 90% de 60px */
 }
 
+.hidden { display: none; }
+.no-productos { padding: 16px; border-radius: 12px; text-align: center; }

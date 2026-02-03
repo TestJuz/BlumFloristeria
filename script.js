@@ -44,122 +44,90 @@ document.addEventListener("DOMContentLoaded", () => {
 // CARGA DE PRODUCTOS + ADD TO CART
 // ===========================
 document.addEventListener("DOMContentLoaded", () => {
-    const grid = document.getElementById("productos-grid");
-    const categoriaSelect = document.getElementById("categoriaSelect");
+  const grid = document.getElementById("productos-grid");
+  const categoriaSelect = document.getElementById("categoriaSelect");
+  const noProductosDiv = document.getElementById("no-productos"); // ✅
 
-    let productosData = {}; // guardamos el JSON aquí
+  let productosData = {};
 
-    /* ===============================
-       🛒 Delegación de eventos carrito
-    ================================ */
-    grid.addEventListener("click", (event) => {
-        const btn = event.target.closest(".btn-add");
-        if (!btn) return;
+  function formatearCategoria(cat) {
+    return cat.replace(/_/g, " ");
+  }
 
-        const nombre = btn.dataset.name;
-        const rawPrice = btn.dataset.price;
+  function formatearPrecio(precio) {
+    if (precio === null) return "Personalizable";
+    if (typeof precio === "string") return precio;
+    return `₡${precio.toLocaleString("es-CR")}`;
+  }
 
-        const precio = (rawPrice === "" || rawPrice === undefined)
-            ? null
-            : Number(rawPrice);
+  function renderProductos(categoria = "ALL") {
+    grid.innerHTML = "";
 
-        const existente = carrito.find(item => item.nombre === nombre);
+    const categorias = (categoria === "ALL")
+      ? Object.keys(productosData)
+      : [categoria];
 
-        if (existente) {
-            existente.cantidad++;
-        } else {
-            carrito.push({
-                nombre,
-                precio,
-                cantidad: 1
-            });
-        }
+    let renderedCount = 0; // ✅
 
-        guardarCarrito();
-        renderCarrito();
+    categorias.forEach(cat => {
+      (productosData[cat] || []).forEach(producto => {
+        if (producto.disponible === false) return;
+
+        const card = document.createElement("div");
+        card.classList.add("producto-card");
+
+        card.innerHTML = `
+          <div class="producto-img">
+            <img src="${producto.imagen}" alt="${producto.nombre}" loading="lazy">
+          </div>
+          <h3>${producto.nombre}</h3>
+          <p class="producto-descripcion">${formatearCategoria(cat)}</p>
+          <span class="precio">${formatearPrecio(producto.precio)}</span>
+          <button class="btn-add"
+            data-name="${producto.nombre}"
+            data-price="${typeof producto.precio === "number" ? producto.precio : ""}">
+            <span class="material-symbols-outlined">shopping_cart</span>
+            Añadir al carrito
+          </button>
+        `;
+
+        grid.appendChild(card);
+        renderedCount++; // ✅
+      });
     });
 
-    /* ===============================
-       🔧 Helpers
-    ================================ */
-    function formatearCategoria(cat) {
-        return cat.replace(/_/g, " ");
+    // ✅ Mostrar mensaje si no se renderizó nada
+    if (noProductosDiv) {
+      if (renderedCount === 0) noProductosDiv.classList.remove("hidden");
+      else noProductosDiv.classList.add("hidden");
     }
+  }
 
-    function formatearPrecio(precio) {
-        if (precio === null) return "Personalizable";
-        if (typeof precio === "string") return precio;
-        return `₡${precio.toLocaleString("es-CR")}`;
-    }
+  function cargarCategorias() {
+    categoriaSelect.innerHTML = `<option value="ALL">TODAS</option>`;
+    Object.keys(productosData).forEach(cat => {
+      const opt = document.createElement("option");
+      opt.value = cat;
+      opt.textContent = formatearCategoria(cat);
+      categoriaSelect.appendChild(opt);
+    });
+  }
 
-    /* ===============================
-       🎨 Render productos
-    ================================ */
-    function renderProductos(categoria = "ALL") {
-        grid.innerHTML = "";
+  fetch("./Products.json")
+    .then(res => res.json())
+    .then(data => {
+      productosData = data;
 
-        const categorias = (categoria === "ALL")
-            ? Object.keys(productosData)
-            : [categoria];
+      cargarCategorias();
+      renderProductos("ALL");
 
-        categorias.forEach(cat => {
-            productosData[cat].forEach(producto => {
-                if (producto.disponible === false) return;
-
-                const card = document.createElement("div");
-                card.classList.add("producto-card");
-
-                card.innerHTML = `
-                    <div class="producto-img">
-                        <img src="${producto.imagen}" alt="${producto.nombre}" loading="lazy">
-                    </div>
-                    <h3>${producto.nombre}</h3>
-                    <p class="producto-descripcion">${formatearCategoria(cat)}</p>
-                    <span class="precio">${formatearPrecio(producto.precio)}</span>
-                    <button class="btn-add"
-                        data-name="${producto.nombre}"
-                        data-price="${typeof producto.precio === "number" ? producto.precio : ""}">
-                        <span class="material-symbols-outlined">shopping_cart</span>
-                        Añadir al carrito
-                    </button>
-                `;
-
-                grid.appendChild(card);
-            });
-        });
-    }
-
-    /* ===============================
-       🧭 Cargar categorías al select
-    ================================ */
-    function cargarCategorias() {
-        categoriaSelect.innerHTML = `<option value="ALL">TODAS</option>`;
-
-        Object.keys(productosData).forEach(cat => {
-            const opt = document.createElement("option");
-            opt.value = cat;
-            opt.textContent = formatearCategoria(cat);
-            categoriaSelect.appendChild(opt);
-        });
-    }
-
-    /* ===============================
-       📦 Fetch productos
-    ================================ */
-    fetch("./Products.json")
-        .then(res => res.json())
-        .then(data => {
-            productosData = data;
-
-            cargarCategorias();
-            renderProductos("ALL");
-
-            categoriaSelect.addEventListener("change", (e) => {
-                renderProductos(e.target.value);
-            });
-        })
-        .catch(err => console.error("Error cargando productos:", err));
+      categoriaSelect.addEventListener("change", (e) => {
+        renderProductos(e.target.value);
+      });
+    })
+    .catch(err => console.error("Error cargando productos:", err));
 });
+
 
 
 
