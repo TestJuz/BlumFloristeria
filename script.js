@@ -3,7 +3,25 @@
 // CARGA OPINIONES DE CLIENTES
 // ===========================
 document.addEventListener("DOMContentLoaded", () => {
-    const placeId = "ChIJrRE_D4H7oI8RoylPeAX17Qo";
+    const placeId = "ChIJrRE_D4H7oI8RO5ryhFdQ7wo";
+    const container = document.getElementById("reviews-container");
+    const mapsReviewsUrl = "https://maps.app.goo.gl/JQw4D34HEqtfSsXu7";
+
+    function mostrarFallbackResenas() {
+        if (!container) return;
+        container.innerHTML = `
+            <p class="reviews-fallback">
+                No pudimos cargar las opiniones automaticamente.
+                <a href="${mapsReviewsUrl}" target="_blank" rel="noopener">Ver opiniones en Google Maps</a>
+            </p>
+        `;
+    }
+
+    if (!window.google || !google.maps || !google.maps.places) {
+        console.warn("Google Maps no esta disponible; no se cargan resenas.");
+        mostrarFallbackResenas();
+        return;
+    }
 
     const service = new google.maps.places.PlacesService(document.createElement('div'));
 
@@ -22,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
             container.innerHTML = "";
 
             // 👉 SOLO REVIEWS DE 5 ESTRELLAS
-            const fiveStarReviews = place.reviews.filter(r => r.rating === 5);
+            const fiveStarReviews = (place.reviews || []).filter(r => r.rating === 5);
 
             // 👉 Mostrar solo 5 reviews, si querés
             fiveStarReviews.slice(0, 5).forEach(r => {
@@ -46,9 +64,12 @@ document.addEventListener("DOMContentLoaded", () => {
 document.addEventListener("DOMContentLoaded", () => {
   const grid = document.getElementById("productos-grid");
   const categoriaSelect = document.getElementById("categoriaSelect");
-  const noProductosDiv = document.getElementById("no-productos"); // ✅
+  const noProductosDiv = document.getElementById("no-productos");
 
   let productosData = {};
+  let productosJsonCargado = false;
+
+  if (!grid || !categoriaSelect) return;
 
   function formatearCategoria(cat) {
     return cat.replace(/_/g, " ");
@@ -57,8 +78,76 @@ document.addEventListener("DOMContentLoaded", () => {
   function formatearPrecio(precio) {
     if (precio === null) return "Personalizable";
     if (typeof precio === "string") return precio;
-    return `₡${precio.toLocaleString("es-CR")}`;
+    return `\u20a1${precio.toLocaleString("es-CR")}`;
   }
+
+  function actualizarMensajeNoProductos(count) {
+    if (!noProductosDiv) return;
+
+    if (count === 0) {
+      noProductosDiv.innerHTML = `
+        Por el momento no hay productos disponibles. Por favor contactanos por WhatsApp para mayor informacion.
+        <a href="https://wa.me/50683551919" target="_blank" rel="noopener">Escribir por WhatsApp</a>
+      `;
+      noProductosDiv.classList.remove("hidden");
+      return;
+    }
+
+    noProductosDiv.classList.add("hidden");
+    noProductosDiv.textContent = "";
+  }
+
+  function categoriasFallback() {
+    return [...new Set(
+      Array.from(grid.querySelectorAll(".producto-card[data-category]"))
+        .map(card => card.dataset.category)
+        .filter(Boolean)
+    )];
+  }
+
+  function cargarCategoriasFallback() {
+    const categorias = categoriasFallback();
+    if (categorias.length === 0) return;
+
+    categoriaSelect.innerHTML = `<option value="ALL">TODAS</option>`;
+    categorias.forEach(cat => {
+      const opt = document.createElement("option");
+      opt.value = cat;
+      opt.textContent = formatearCategoria(cat);
+      categoriaSelect.appendChild(opt);
+    });
+  }
+
+  function renderFallback(categoria = "ALL") {
+    let visibleCount = 0;
+
+    grid.querySelectorAll(".producto-card[data-category]").forEach(card => {
+      const visible = categoria === "ALL" || card.dataset.category === categoria;
+      card.style.display = visible ? "" : "none";
+      if (visible) visibleCount++;
+    });
+
+    actualizarMensajeNoProductos(visibleCount);
+  }
+
+  grid.addEventListener("click", (event) => {
+    const btn = event.target.closest(".btn-add");
+    if (!btn || !grid.contains(btn)) return;
+
+    const nombre = btn.dataset.name;
+    const precio = btn.dataset.price === "" ? "Personalizable" : Number(btn.dataset.price);
+    if (!nombre) return;
+
+    const itemExistente = carrito.find(item => item.nombre === nombre);
+    if (itemExistente) {
+      itemExistente.cantidad++;
+    } else {
+      carrito.push({ nombre, precio, cantidad: 1 });
+    }
+
+    guardarCarrito();
+    abrirCarrito();
+  });
 
   function renderProductos(categoria = "ALL") {
     grid.innerHTML = "";
@@ -67,7 +156,7 @@ document.addEventListener("DOMContentLoaded", () => {
       ? Object.keys(productosData)
       : [categoria];
 
-    let renderedCount = 0; // ✅
+    let renderedCount = 0;
 
     categorias.forEach(cat => {
       (productosData[cat] || []).forEach(producto => {
@@ -75,6 +164,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const card = document.createElement("div");
         card.classList.add("producto-card");
+        card.dataset.category = cat;
 
         card.innerHTML = `
           <div class="producto-img">
@@ -87,20 +177,16 @@ document.addEventListener("DOMContentLoaded", () => {
             data-name="${producto.nombre}"
             data-price="${typeof producto.precio === "number" ? producto.precio : ""}">
             <span class="material-symbols-outlined">shopping_cart</span>
-            Añadir al carrito
+            A\u00f1adir al carrito
           </button>
         `;
 
         grid.appendChild(card);
-        renderedCount++; // ✅
+        renderedCount++;
       });
     });
 
-    // ✅ Mostrar mensaje si no se renderizó nada
-    if (noProductosDiv) {
-      if (renderedCount === 0) noProductosDiv.classList.remove("hidden");
-      else noProductosDiv.classList.add("hidden");
-    }
+    actualizarMensajeNoProductos(renderedCount);
   }
 
   function cargarCategorias() {
@@ -113,19 +199,30 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  cargarCategoriasFallback();
+  renderFallback("ALL");
+
+  categoriaSelect.addEventListener("change", (e) => {
+    if (productosJsonCargado) renderProductos(e.target.value);
+    else renderFallback(e.target.value);
+  });
+
   fetch("./Products.json")
-    .then(res => res.json())
+    .then(res => {
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      return res.json();
+    })
     .then(data => {
       productosData = data;
+      productosJsonCargado = true;
 
       cargarCategorias();
       renderProductos("ALL");
-
-      categoriaSelect.addEventListener("change", (e) => {
-        renderProductos(e.target.value);
-      });
     })
-    .catch(err => console.error("Error cargando productos:", err));
+    .catch(err => {
+      console.error("Error cargando productos:", err);
+      renderFallback(categoriaSelect.value || "ALL");
+    });
 });
 
 
@@ -368,3 +465,35 @@ document.getElementById("btn-limpiar-si").addEventListener("click", () => {
 document.getElementById("btn-limpiar-no").addEventListener("click", () => {
     document.getElementById("confirm-limpiar").classList.add("hidden");
 });
+
+
+
+const placeId = "ChIJrRE_D4H7oI8RO5ryhFdQ7wo";
+const apiKey = "AIzaSyDiMUDsSsBdJM8d-PxOhpbL8YA7ISf_7bk";
+
+async function obtenerLugar() {
+    try {
+        const response = await fetch(
+            `https://places.googleapis.com/v1/places/${placeId}?fields=id,displayName,rating,userRatingCount,reviews`,
+            {
+                method: "GET",
+                headers: {
+                    "X-Goog-Api-Key": apiKey
+                }
+            }
+        );
+
+        const data = await response.json();
+
+        console.log("Datos del lugar:", data);
+        console.log("Nombre:", data.displayName?.text);
+        console.log("Rating:", data.rating);
+        console.log("Cantidad de reseñas:", data.userRatingCount);
+        console.log("Reseñas:", data.reviews);
+
+    } catch (error) {
+        console.error("Error:", error);
+    }
+}
+
+obtenerLugar();
