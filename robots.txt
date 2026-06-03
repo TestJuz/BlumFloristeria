@@ -1,3 +1,3 @@
 User-agent: *
-Allow: /
+Allow: /catalogo.html
 Sitemap: https://blumfloristeria.com/sitemap.xml
