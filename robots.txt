@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /catalogo.html
+Allow: /PRODUCTOS.json
 Sitemap: https://blumfloristeria.com/sitemap.xml
