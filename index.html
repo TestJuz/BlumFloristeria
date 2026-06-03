@@ -49,7 +49,35 @@
         <link rel="canonical" href="https://blumfloristeria.com/">
         <link rel="sitemap" type="application/xml" href="/sitemap.xml">
         <link rel="stylesheet" href="./style.css">
-<script type="application/ld+json" id="productos-schema">
+        <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          "name": "Blum Floristería",
+          "url": "https://blumfloristeria.com/",
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://blumfloristeria.com/catalogo.html?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+          }
+        }
+        </script>
+
+        <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          "name": "Catálogo Completo Blum Floristería",
+          "url": "https://blumfloristeria.com/catalogo.html",
+          "description": "Catálogo completo de arreglos florales, ramos, girasoles, rosas, condolencias, cumpleaños, propuestas, aniversarios y decoración de eventos.",
+          "isPartOf": {
+            "@type": "WebSite",
+            "name": "Blum Floristería",
+            "url": "https://blumfloristeria.com/"
+          }
+        }
+        </script>
+        <script type="application/ld+json" id="productos-schema">
         {
           "@context": "https://schema.org",
           "@type": "ItemList",
@@ -979,7 +1007,12 @@
             <!--Seccion donde se agregan los productos automaticamente-->
             <div class="productos-grid" id="productos-grid"></div>
 
-            <p class="catalogo-link"><a href="catalogo.html">Ver catálogo completo</a></p>
+            <p class="catalogo-link">
+            Esta página muestra una selección de productos.
+            <a href="catalogo.html">
+              Ver catálogo completo con más de 40 arreglos florales
+            </a>
+          </p>
 
             <button onclick="enviarCarrito()" class="btn-filled-dark btn-enviar-pedido">
                 <span class="material-symbols-outlined">shopping_cart</span>
