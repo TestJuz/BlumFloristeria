@@ -169,7 +169,7 @@ document.addEventListener("DOMContentLoaded", () => {
     renderProductos(e.target.value);
   });
 
-  fetch("./Products.json")
+  fetch("./PRODUCTOS.json")
     .then(res => {
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       return res.json();
