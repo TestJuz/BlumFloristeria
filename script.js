@@ -67,7 +67,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const noProductosDiv = document.getElementById("no-productos");
 
   let productosData = {};
-  let productosJsonCargado = false;
 
   if (!grid || !categoriaSelect) return;
 
@@ -95,39 +94,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     noProductosDiv.classList.add("hidden");
     noProductosDiv.textContent = "";
-  }
-
-  function categoriasFallback() {
-    return [...new Set(
-      Array.from(grid.querySelectorAll(".producto-card[data-category]"))
-        .map(card => card.dataset.category)
-        .filter(Boolean)
-    )];
-  }
-
-  function cargarCategoriasFallback() {
-    const categorias = categoriasFallback();
-    if (categorias.length === 0) return;
-
-    categoriaSelect.innerHTML = `<option value="ALL">TODAS</option>`;
-    categorias.forEach(cat => {
-      const opt = document.createElement("option");
-      opt.value = cat;
-      opt.textContent = formatearCategoria(cat);
-      categoriaSelect.appendChild(opt);
-    });
-  }
-
-  function renderFallback(categoria = "ALL") {
-    let visibleCount = 0;
-
-    grid.querySelectorAll(".producto-card[data-category]").forEach(card => {
-      const visible = categoria === "ALL" || card.dataset.category === categoria;
-      card.style.display = visible ? "" : "none";
-      if (visible) visibleCount++;
-    });
-
-    actualizarMensajeNoProductos(visibleCount);
   }
 
   grid.addEventListener("click", (event) => {
@@ -199,12 +165,8 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  cargarCategoriasFallback();
-  renderFallback("ALL");
-
   categoriaSelect.addEventListener("change", (e) => {
-    if (productosJsonCargado) renderProductos(e.target.value);
-    else renderFallback(e.target.value);
+    renderProductos(e.target.value);
   });
 
   fetch("./Products.json")
@@ -214,14 +176,13 @@ document.addEventListener("DOMContentLoaded", () => {
     })
     .then(data => {
       productosData = data;
-      productosJsonCargado = true;
 
       cargarCategorias();
       renderProductos("ALL");
     })
     .catch(err => {
       console.error("Error cargando productos:", err);
-      renderFallback(categoriaSelect.value || "ALL");
+      actualizarMensajeNoProductos(0);
     });
 });
 
@@ -467,33 +428,3 @@ document.getElementById("btn-limpiar-no").addEventListener("click", () => {
 });
 
 
-
-const placeId = "ChIJrRE_D4H7oI8RO5ryhFdQ7wo";
-const apiKey = "AIzaSyDiMUDsSsBdJM8d-PxOhpbL8YA7ISf_7bk";
-
-async function obtenerLugar() {
-    try {
-        const response = await fetch(
-            `https://places.googleapis.com/v1/places/${placeId}?fields=id,displayName,rating,userRatingCount,reviews`,
-            {
-                method: "GET",
-                headers: {
-                    "X-Goog-Api-Key": apiKey
-                }
-            }
-        );
-
-        const data = await response.json();
-
-        console.log("Datos del lugar:", data);
-        console.log("Nombre:", data.displayName?.text);
-        console.log("Rating:", data.rating);
-        console.log("Cantidad de reseñas:", data.userRatingCount);
-        console.log("Reseñas:", data.reviews);
-
-    } catch (error) {
-        console.error("Error:", error);
-    }
-}
-
-obtenerLugar();
